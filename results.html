@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Analysis Complete</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="result-text">
+            <h1>Analysis Result :: {{ emotion }}</h1>
+        </div>
+        
+        <img src="{{ image_path }}" alt="Analyzed Image" class="result-image">
+        
+        <div class="mt-4">
+            <a href="/" class="btn-sci-fi">Run New Analysis</a>
+        </div>
+    </div>
+</body>
+</html>
