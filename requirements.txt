@@ -2,5 +2,5 @@ flask==2.3.3
 tensorflow==2.20.0
 numpy==1.26.4
 opencv-python==4.9.0.80
-pillow==10.2.0
+pillow==9.5.0
 gunicorn==21.2.0
