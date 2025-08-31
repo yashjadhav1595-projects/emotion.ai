@@ -14,6 +14,9 @@ os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 @app.route('/', methods=['GET','POST'])
 def index():
     if request.method == 'POST':
+        if 'image' not in request.files or request.files['image'].filename == '':
+            # No file uploaded, redirect to index or show error
+            return render_template('index.html', error='No file selected. Please upload an image.')
         file = request.files['image']
         path = os.path.join(UPLOAD_FOLDER, file.filename)
         file.save(path)
@@ -28,7 +31,7 @@ def index():
         prediction = model.predict(img)
         emotion = emotions[np.argmax(prediction)]
 
-        return render_template('result.html', image_path=path, emotion=emotion)
+        return render_template('result.html', image_path='/' + path, emotion=emotion)
 
     return render_template('index.html')
 
